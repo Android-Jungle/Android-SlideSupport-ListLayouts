@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:layout_margin="2dp"
             android:singleLine="true"
-            android:text="Right 2 Left"
+            android:text="Right To Left"
             android:onClick="onRightToLeftMode"
             android:background="@drawable/selectable_btn_bkg"/>
 
