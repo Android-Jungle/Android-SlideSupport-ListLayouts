@@ -1,4 +1,4 @@
-#Android-SlideSupport-ListLayouts
+#Android-SlideSupport-ListLayouts 使用简介
 ---
-中文版使用简介请点击 [此处](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/README-zh.md)。
+English Usage Click [Here](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/README.md)。
 
