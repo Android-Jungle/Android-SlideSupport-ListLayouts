@@ -30,7 +30,7 @@
 
 ### 4、使用方式
 #### 4.1、XML 中指定滑动 View 和滑动动作
-```
+```xml
 <com.straw.library.slide.widget.SlideSupportListView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -46,7 +46,7 @@
 ```
 
 #### 4.2、为 SlideSupportListView 配置 Adapter
-```
+```java
 SlideSupportListView.SlideAdapter adapter = new SlideSupportListView.SlideAdapter {
 
     // ...
@@ -72,7 +72,7 @@ SlideSupportListView.SlideAdapter adapter = new SlideSupportListView.SlideAdapte
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以看出，和平常所用 Adapter 主要的不同在 getView 的时候：
 
-```
+```java
 SlideSupportLayout layout = createSlideLayout(parent);
 View.inflate(mContext, R.layout.layout_item_with_delete, layout);
 convertView = layout;
@@ -166,9 +166,9 @@ convertView = layout;
 
 ### 8、高级操作
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过 `CompositeSlideHandler`、`SlideHandlerSet`、`SlideHandlerSequence`、`CallbackSlideHandler`、`DelayTimeSlideHandler` 组合，来实现一系列高级的用法。比如：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过 `CompositeSlideHandler`、`SlideHandlerSet`、`SlideHandlerSequence`、`CallbackSlideHandler`、`DelayTimeSlideHandler` 等 Handler 组合，来实现一系列高级的用法。比如：
 
-```
+```java
 public class SlideActionSetSampleActivity extends Activity {
 
     @Override
@@ -249,7 +249,7 @@ zyfgood12@163.com
 ---
 ### License
 
-```
+```java
 /*
  * Copyright (C) 2015 Arno Zhang
  *
