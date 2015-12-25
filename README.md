@@ -121,19 +121,19 @@ convertView = layout;
 |---|---|---|
 |fromScale|`scaleItem`|缩放开始比例|
 |toScale|`scaleItem`|缩放结束比例|
-|scaleDuration|`scaleItem`|缩放时长，ms|
+|scaleDuration|`scaleItem`|缩放时长，ms. 如不指定将继承 `slideDuration` 的值|
 
 |属性|生效的动作类型|作用|
 |---|---|---|
 |fromDegree|`rotateItem`|旋转开始角度|
 |toDegree|`rotateItem`|旋转结束角度|
-|rotateDuration|`rotateItem`|旋转时长，ms|
+|rotateDuration|`rotateItem`|旋转时长，ms. 如不指定将继承 `slideDuration` 的值|
 
 |属性|生效的动作类型|作用|
 |---|---|---|
 |fromAlpha|`alphaItem`|开始透明度，[ 0, 1.0f ]|
 |toAlpha|`alphaItem`|结束透明度，[ 0, 1.0f ]|
-|alphaDuration|`alphaItem`|透明度渐变时长，ms|
+|alphaDuration|`alphaItem`|透明度渐变时长，ms. 如不指定将继承 `slideDuration` 的值|
 
 ### 5、XML 中必须配置的属性
 
