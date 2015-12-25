@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.straw.library.slide.widget.SlideSupportExpandableListView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/expandable_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:groupIndicator="@null"
+    app:leftViewId="@+id/fav_item"
+    app:rightViewId="@+id/delete_item"
+    app:contentViewId="@+id/sample_item"/>

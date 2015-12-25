@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="line_color">#dadbdb</color>
+    <color name="micro_color">#333</color>
+    <color name="description_color">#999</color>
+    <color name="pressed_color">#34808080</color>
+    <color name="faved_color">#d63334</color>
+    <color name="un_faved_color">@color/micro_color</color>
+    <color name="selected_color">#4d98ec</color>
+    <color name="fav_item_bkg_color">#a8d3f4</color>
+</resources>

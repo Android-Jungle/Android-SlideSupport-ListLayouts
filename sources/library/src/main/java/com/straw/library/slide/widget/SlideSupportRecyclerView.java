@@ -1,0 +1,125 @@
+/*
+ * Copyright (C) 2015 Arno Zhang
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.straw.library.slide.widget;
+
+import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.ViewGroup;
+import com.straw.library.slide.handler.SlideHandler;
+import com.straw.library.slide.support.SlideImplSupporter;
+import com.straw.library.slide.support.SlideMode;
+import com.straw.library.slide.support.SlideSupportLayout;
+import com.straw.library.slide.support.SlideSupporter;
+import com.straw.library.slide.support.SlideTouchActionHandler;
+import com.straw.library.slide.support.SlideUtils;
+
+public class SlideSupportRecyclerView extends RecyclerView
+        implements SlideSupporter {
+
+    private SlideTouchActionHandler mActionHandler;
+
+
+    public SlideSupportRecyclerView(Context context) {
+        super(context);
+        initLayout(context, null);
+    }
+
+
+    public SlideSupportRecyclerView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initLayout(context, attrs);
+    }
+
+    public SlideSupportRecyclerView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initLayout(context, attrs);
+    }
+
+    private void initLayout(Context context, AttributeSet attrs) {
+        mActionHandler = new SlideTouchActionHandler(context, attrs);
+        setLayoutManager(new LinearLayoutManager(context));
+    }
+
+    @Override
+    public SlideSupportLayout createSlideLayout(ViewGroup parent) {
+        return SlideUtils.createSlideLayout(mActionHandler, parent);
+    }
+
+    @Override
+    public void cancelCurrentSlide(boolean immediately) {
+        mActionHandler.cancelCurrentSlide(immediately);
+    }
+
+    @Override
+    public boolean isSlided() {
+        return mActionHandler.isSlided();
+    }
+
+    @Override
+    public SlideMode getSlideMode() {
+        return mActionHandler.getSlideMode();
+    }
+
+    @Override
+    public void setSlideMode(SlideMode mode) {
+        mActionHandler.setSlideMode(mode);
+    }
+
+    @Override
+    public void setSlideHandler(SlideHandler handler) {
+        mActionHandler.setSlideHandler(handler);
+    }
+
+    @Override
+    public void setAdapter(Adapter adapter) {
+        if (adapter instanceof SlideAdapter) {
+            SlideAdapter slideAdapter = (SlideAdapter) adapter;
+            slideAdapter.setSlideSupporter(mActionHandler);
+        }
+
+        super.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e) {
+        SlideTouchActionHandler.HandleResult result =
+                mActionHandler.handleInterceptTouchEvent(e);
+        if (result.isHandled()) {
+            return result.getResult();
+        }
+
+        return super.onInterceptTouchEvent(e);
+    }
+
+    public static abstract class SlideAdapter<VH extends ViewHolder>
+            extends Adapter<VH> {
+
+        private SlideImplSupporter mSlideSupporter;
+
+
+        private void setSlideSupporter(SlideImplSupporter supporter) {
+            mSlideSupporter = supporter;
+        }
+
+        protected SlideSupportLayout createSlideLayout(ViewGroup parent) {
+            return SlideUtils.createSlideLayout(mSlideSupporter, parent);
+        }
+    }
+}
