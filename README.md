@@ -1,6 +1,6 @@
 #Android-SlideSupport-ListLayouts 使用简介
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**English Usage Click [Here](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/README-en.md)。**
+####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**English Usage Click [Here](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/README-en.md)。**
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Android-SlideSupport-ListLayouts 是一款用于为 Android 上的 List 排布提供左滑右滑操作的库。目前支持的 Layout 主要有： ListView、RecyclerView、ScrollView、ExpandableListView 等。另外还可以与 SwpieRefreshLayout、PullToRefresh 等等第三方库协同工作。
@@ -16,8 +16,8 @@
 
 ### 2、相关下载
 
-- library aar：[Android-SlideSupport-ListLayouts__1.0.aar](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__1.0.aar)
-- samples apk：[Android-SlideSupport-ListLayouts__samples.apk](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__samples.apk)
+- Library aar：[Android-SlideSupport-ListLayouts__1.0.aar](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__1.0.aar)
+- Samples apk：[Android-SlideSupport-ListLayouts__samples.apk](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__samples.apk)
 
 ### 3、使用预览
 |ListView|RecyclerView + SwipeRefreshLayout|ListView + PullToRefresh Library|
@@ -163,6 +163,78 @@ convertView = layout;
 ### 7、自定义动作
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过实现 `SlideHandler` 接口来实现自己的动作，通过 `SlideSupporter.setSlideHandler` 方法设置到对应的 View。具体可参考 samples 中的 `CustomizedSlideActionLayout` 的实现。
+
+### 8、高级操作
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过 `CompositeSlideHandler`、`SlideHandlerSet`、`SlideHandlerSequence`、`CallbackSlideHandler`、`DelayTimeSlideHandler` 组合，来实现一系列高级的用法。比如：
+
+```
+public class SlideActionSetSampleActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceBundle) {
+        super.onCreate(savedInstanceBundle);
+
+        // ...
+        SlideSupportRecyclerView recyclerView = (SlideSupportRecyclerView)
+                findViewById(R.id.slide_recycler_view);
+
+        CompositeSlideHandler handler = new CompositeSlideHandler(
+                createLeftToRightHandler(),
+                createRightToLeftHandler());
+        recyclerView.setSlideHandler(handler);
+    }
+
+    private SlideHandler createLeftToRightHandler() {
+        MoveWithContentSlideHandler move = new MoveWithContentSlideHandler(
+                R.id.fav_item, R.id.delete_item, R.id.sample_item);
+
+        DelayTimeSlideHandler delay = new DelayTimeSlideHandler(800);
+
+        RotateSlideHandler rotate = new RotateSlideHandler(
+                R.id.fav_item, R.id.delete_item, R.id.sample_item);
+        rotate.setFromDegree(0);
+        rotate.setToDegree(360);
+        rotate.setAnimatorDuration(600);
+
+        CallbackSlideHandler callback = new CallbackSlideHandler(
+                new CallbackSlideHandler.SlideCallback() {
+                    @Override
+                    public void onFinished(boolean isSlide,
+                            SlideSupportLayout layout, SlideMode mode) {
+
+                        if (isSlide) {
+                            Toast.makeText(getContext(),
+                                    mode.toString() + " Finished!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+        return new SlideHandlerSequence(move, delay, rotate, callback);
+    }
+
+    private SlideHandler createRightToLeftHandler() {
+        RotateSlideHandler rotate = new RotateSlideHandler(
+                R.id.fav_item, R.id.delete_item, R.id.sample_item);
+        rotate.setFromDegree(0);
+        rotate.setToDegree(360);
+        rotate.setAnimatorDuration(600);
+
+        ScaleSlideHandler scale = new ScaleSlideHandler(
+                R.id.fav_item, R.id.delete_item, R.id.sample_item);
+        scale.setFromScale(0);
+        scale.setToScale(1);
+        scale.setAnimatorDuration(600);
+
+        return new SlideHandlerSet(rotate, scale);
+    }
+
+    // ...
+}
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以看出，在 `createLeftToRightHandler` 这个方法中，通过 `SlideHandlerSequence` Handler，将四个动作依次连接起来。具体按顺序执行为：`移动` - `等待一段时间` - `旋转` - `回调`。
 
 ---
 
