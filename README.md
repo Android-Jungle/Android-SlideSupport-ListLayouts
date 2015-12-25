@@ -3,7 +3,7 @@
 ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**English Usage Click [Here](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/README-en.md)。**
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Android-SlideSupport-ListLayouts 是一款用于为 Android 上的 List 排布提供左滑右滑操作的库。目前支持的 Layout 主要有： ListView、RecyclerView、ScrollView、ExpandableListView 等。另外还可以与 SwpieRefreshLayout、PullToRefresh 等等第三方库协同工作。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Android-SlideSupport-ListLayouts 是一款用于为 Android 上的 List 排布提供左滑右滑操作的库。目前支持的 Layout 主要有： `ListView`、`RecyclerView`、`ScrollView`、`ExpandableListView` 等。另外还可以与 `SwpieRefreshLayout`、`PullToRefresh` 等第三方库协同工作。
 
 ### 1、支持的 Layout
 
@@ -16,8 +16,8 @@
 
 ### 2、相关下载
 
-- Library aar：[Android-SlideSupport-ListLayouts__1.0.aar](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__1.0.aar)
-- Samples apk：[Android-SlideSupport-ListLayouts__samples.apk](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__samples.apk)
+- **Library aar**：[Android-SlideSupport-ListLayouts__1.0.aar](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__1.0.aar)
+- **Samples apk**：[Android-SlideSupport-ListLayouts__samples.apk](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__samples.apk)
 
 ### 3、使用预览
 |ListView|RecyclerView + SwipeRefreshLayout|ListView + PullToRefresh Library|
