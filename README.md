@@ -15,8 +15,8 @@
 
 ### 2、相关下载
 
-- library aar：
-- samples apk：
+- library aar：[Android-SlideSupport-ListLayouts__1.0.aar](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__1.0.aar)
+- samples apk：[Android-SlideSupport-ListLayouts__samples.apk](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__samples.apk)
 
 ### 3、使用预览
 |ListView|RecyclerView + SwipeRefreshLayout|ListView + PullToRefresh Library|
