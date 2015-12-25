@@ -1,7 +1,8 @@
 #Android-SlideSupport-ListLayouts 使用简介
----
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**English Usage Click [Here](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/README.md)。**
-<br />
+
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Android-SlideSupport-ListLayouts 是一款用于为 Android 上的 List 排布提供左滑右滑操作的库。目前支持的 Layout 主要有： ListView、RecyclerView、ScrollView、ExpandableListView 等。另外还可以与 SwpieRefreshLayout、PullToRefresh 等等第三方库协同工作。
 
 ### 1、支持的 Layout
@@ -170,6 +171,7 @@ zyfgood12@gmail.com
 
 zyfgood12@163.com
 
+---
 ### License
 
 ```
