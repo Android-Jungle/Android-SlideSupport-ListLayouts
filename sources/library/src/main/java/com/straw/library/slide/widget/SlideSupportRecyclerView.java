@@ -33,6 +33,22 @@ import com.straw.library.slide.support.SlideUtils;
 public class SlideSupportRecyclerView extends RecyclerView
         implements SlideSupporter {
 
+    public static abstract class SlideAdapter<VH extends ViewHolder>
+            extends Adapter<VH> {
+
+        private SlideImplSupporter mSlideSupporter;
+
+
+        private void setSlideSupporter(SlideImplSupporter supporter) {
+            mSlideSupporter = supporter;
+        }
+
+        protected SlideSupportLayout createSlideLayout(ViewGroup parent) {
+            return SlideUtils.createSlideLayout(mSlideSupporter, parent);
+        }
+    }
+
+
     private SlideTouchActionHandler mActionHandler;
 
 
@@ -106,20 +122,5 @@ public class SlideSupportRecyclerView extends RecyclerView
         }
 
         return super.onInterceptTouchEvent(e);
-    }
-
-    public static abstract class SlideAdapter<VH extends ViewHolder>
-            extends Adapter<VH> {
-
-        private SlideImplSupporter mSlideSupporter;
-
-
-        private void setSlideSupporter(SlideImplSupporter supporter) {
-            mSlideSupporter = supporter;
-        }
-
-        protected SlideSupportLayout createSlideLayout(ViewGroup parent) {
-            return SlideUtils.createSlideLayout(mSlideSupporter, parent);
-        }
     }
 }

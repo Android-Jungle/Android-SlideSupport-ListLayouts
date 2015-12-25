@@ -33,6 +33,21 @@ import com.straw.library.slide.support.SlideUtils;
 
 public class SlideSupportListView extends ListView implements SlideSupporter {
 
+    public static abstract class SlideAdapter extends BaseAdapter {
+
+        private SlideImplSupporter mSlideSupporter;
+
+
+        private void setSlideSupporter(SlideImplSupporter supporter) {
+            mSlideSupporter = supporter;
+        }
+
+        protected SlideSupportLayout createSlideLayout(ViewGroup parent) {
+            return SlideUtils.createSlideLayout(mSlideSupporter, parent);
+        }
+    }
+
+
     private SlideTouchActionHandler mActionHandler;
 
     public SlideSupportListView(Context context) {
@@ -104,19 +119,5 @@ public class SlideSupportListView extends ListView implements SlideSupporter {
         }
 
         return super.onInterceptTouchEvent(e);
-    }
-
-    public static abstract class SlideAdapter extends BaseAdapter {
-
-        private SlideImplSupporter mSlideSupporter;
-
-
-        private void setSlideSupporter(SlideImplSupporter supporter) {
-            mSlideSupporter = supporter;
-        }
-
-        protected SlideSupportLayout createSlideLayout(ViewGroup parent) {
-            return SlideUtils.createSlideLayout(mSlideSupporter, parent);
-        }
     }
 }

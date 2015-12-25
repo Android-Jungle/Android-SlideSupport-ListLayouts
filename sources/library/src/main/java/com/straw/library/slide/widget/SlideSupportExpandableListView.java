@@ -34,6 +34,22 @@ import com.straw.library.slide.support.SlideUtils;
 public class SlideSupportExpandableListView extends ExpandableListView
         implements SlideSupporter {
 
+    public static abstract class SlideAdapter
+            extends BaseExpandableListAdapter {
+
+        private SlideImplSupporter mSlideSupporter;
+
+
+        private void setSlideSupporter(SlideImplSupporter supporter) {
+            mSlideSupporter = supporter;
+        }
+
+        protected SlideSupportLayout createSlideLayout(ViewGroup parent) {
+            return SlideUtils.createSlideLayout(mSlideSupporter, parent);
+        }
+    }
+
+
     private SlideTouchActionHandler mActionHandler;
 
 
@@ -106,20 +122,5 @@ public class SlideSupportExpandableListView extends ExpandableListView
         }
 
         return super.onInterceptTouchEvent(e);
-    }
-
-    public static abstract class SlideAdapter
-            extends BaseExpandableListAdapter {
-
-        private SlideImplSupporter mSlideSupporter;
-
-
-        private void setSlideSupporter(SlideImplSupporter supporter) {
-            mSlideSupporter = supporter;
-        }
-
-        protected SlideSupportLayout createSlideLayout(ViewGroup parent) {
-            return SlideUtils.createSlideLayout(mSlideSupporter, parent);
-        }
     }
 }
