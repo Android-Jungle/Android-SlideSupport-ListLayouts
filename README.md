@@ -13,7 +13,12 @@
 - **SwipeRefreshLayout** + xxxView
 - **PullToRefresh** + xxxView
 
-### 2、使用预览
+### 2、相关下载
+
+- library aar：
+- samples apk：
+
+### 3、使用预览
 |ListView|RecyclerView + SwipeRefreshLayout|ListView + PullToRefresh Library|
 |---|---|---|
 |![ListView](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/list_view.gif?raw=true)|![RecyclerView + SwipeRefreshLayout](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/with_swipe_refresh_layout.gif?raw=true)|![ListView + PullToRefreshLibrary](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/pull_to_refresh_list_view.gif?raw=true)|
@@ -22,8 +27,8 @@
 |---|---|
 |![ExpandableListView](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/expandable_list_view.gif?raw=true)|![Customized Slide Action](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/customized_slide_action.gif?raw=true)|
 
-### 3、使用方式
-#### 3.1、XML 中指定滑动 View 和滑动动作
+### 4、使用方式
+#### 4.1、XML 中指定滑动 View 和滑动动作
 ```
 <com.straw.library.slide.widget.SlideSupportListView
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -39,12 +44,12 @@
     app:slideDuration="200"/>
 ```
 
-#### 3.2、为 SlideSupportListView 配置 Adapter
+#### 4.2、为 SlideSupportListView 配置 Adapter
 ```
 SlideSupportListView.SlideAdapter adapter = new SlideSupportListView.SlideAdapter {
 
-	// ...
-	
+    // ...
+    
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         SampleItemHolder holder = null;
@@ -72,7 +77,7 @@ View.inflate(mContext, R.layout.layout_item_with_delete, layout);
 convertView = layout;
 ```
 
-#### 3.3、支持的滑动类型
+#### 4.3、支持的滑动类型
 
 |滑动类型|作用|
 |---|---|
@@ -81,7 +86,7 @@ convertView = layout;
 |rightToLeft|只支持手指从右往左滑动|
 |both|左右两个方向的滑动均支持|
 
-#### 3.4、XML 中支持的滑动动作
+#### 4.4、XML 中支持的滑动动作
 
 |滑动动作|作用|
 |---|---|
@@ -91,7 +96,7 @@ convertView = layout;
 |rotateItem|旋转配置的 View|
 |alphaItem|调整配置 View 的透明度|
 
-#### 3.5、XML 中支持配置的属性
+#### 4.5、XML 中支持配置的属性
 
 |属性|作用|
 |---|---|
@@ -126,7 +131,7 @@ convertView = layout;
 |toAlpha|`alphaItem`|结束透明度，[ 0, 1.0f ]|
 |alphaDuration|`alphaItem`|透明度渐变时长，ms|
 
-### 4、XML 中必须配置的属性
+### 5、XML 中必须配置的属性
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般来说，大部分属性都有默认值，如果你要一个简单的效果，有下面几项在对应情况下是必须配置的：
 
@@ -134,7 +139,7 @@ convertView = layout;
 - `rightViewId`：想要从右往左滑动效果时必须指定
 - `contentViewId`：想要滑动 View 和 contentView 联动时必须配置（如 slideStyle 为 `moveWithContent`）
 
-### 5、滑动动作列表
+### 6、滑动动作列表
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滑动的具体展现方式是通过 `SlideHandler` 来配置的，目前支持的滑动动作列表如下：
 
@@ -151,14 +156,36 @@ convertView = layout;
 |SlideHandlerSequence|否|动作序列，可将若干动作按顺序依次执行|
 |CallbackSlideHandler|否|动作执行回调，可和 `SlideHandlerSequence` 结合执行，在某个动作执行完后回调|
 
-### 6、自定义动作
+### 7、自定义动作
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过实现 `SlideHandler` 接口来实现自己的动作，通过 `SlideSupporter.setSlideHandler` 方法设置到对应的 View。具体可参考 samples 中的 `CustomizedSlideActionLayout` 的实现。
 
 ---
 
-### 作者
+### 联系作者
 
 arnozhang
+
 zyfgood12@gmail.com
+
 zyfgood12@163.com
+
+### License
+
+```
+/*
+ * Copyright (C) 2015 Arno Zhang
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+```
