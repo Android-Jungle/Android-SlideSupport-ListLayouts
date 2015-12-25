@@ -33,7 +33,14 @@ public abstract class SampleBaseActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String title = intent.getStringExtra(HelperUtils.EXTRA_TITLE);
         if (!TextUtils.isEmpty(title)) {
-            setTitle(title.replace("Activity", ""));
+            int length = title.length();
+            String activity = "Activity";
+            int index = title.lastIndexOf(activity);
+            if (index == length - activity.length()) {
+                title = title.substring(0, index);
+            }
+
+            setTitle(title);
         }
     }
 
