@@ -21,11 +21,12 @@ import android.util.AttributeSet;
 
 public enum SlideStyle {
     MoveItemOnly(1),
-    MoveWithContent(2),
-    ScaleItem(3),
-    RotateItem(4),
-    AlphaItem(5),
-    Composited(6);
+    MoveContentOnly(2),
+    MoveWithContent(3),
+    ScaleItem(4),
+    RotateItem(5),
+    AlphaItem(6),
+    Composited(7);
 
     private int mValue;
 
@@ -40,6 +41,8 @@ public enum SlideStyle {
     public static SlideStyle fromValue(int value) {
         if (value == MoveItemOnly.value()) {
             return MoveItemOnly;
+        } else if (value == MoveContentOnly.value()) {
+            return MoveContentOnly;
         } else if (value == MoveWithContent.value()) {
             return MoveWithContent;
         } else if (value == ScaleItem.value()) {
@@ -67,6 +70,8 @@ public enum SlideStyle {
 
         if (style == MoveItemOnly) {
             return new MoveItemOnlySlideHandler(context, attrs);
+        } else if (style == MoveContentOnly) {
+            return new MoveContentOnlySlideHandler(context, attrs);
         } else if (style == MoveWithContent) {
             return new MoveWithContentSlideHandler(context, attrs);
         } else if (style == ScaleItem) {

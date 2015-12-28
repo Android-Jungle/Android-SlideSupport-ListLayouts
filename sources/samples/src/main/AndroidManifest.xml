@@ -19,6 +19,7 @@
 
         <activity android:name=".activity.listview.ListViewSampleActivity"/>
         <activity android:name=".activity.recyclerview.RecyclerViewSampleActivity"/>
+        <activity android:name=".activity.recyclerview.MoveContentOnlySampleActivity"/>
         <activity android:name=".activity.scrollview.ScrollViewSampleActivity"/>
         <activity android:name=".activity.listview.ExpandableListViewSampleActivity"/>
         <activity android:name=".activity.swpierefresh.WithSwipeRefreshLayoutSampleActivity"/>

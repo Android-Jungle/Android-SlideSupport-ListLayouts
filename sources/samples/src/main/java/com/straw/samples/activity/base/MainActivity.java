@@ -25,6 +25,7 @@ import com.straw.samples.activity.customized.SlideActionSetSampleActivity;
 import com.straw.samples.activity.listview.ExpandableListViewSampleActivity;
 import com.straw.samples.activity.listview.ListViewSampleActivity;
 import com.straw.samples.activity.pulltorefresh.WithPullToRefreshLibrarySampleActivity;
+import com.straw.samples.activity.recyclerview.MoveContentOnlySampleActivity;
 import com.straw.samples.activity.recyclerview.RecyclerViewSampleActivity;
 import com.straw.samples.activity.scrollview.ScrollViewSampleActivity;
 import com.straw.samples.activity.swpierefresh.WithSwipeRefreshLayoutSampleActivity;
@@ -71,5 +72,9 @@ public class MainActivity extends SampleBaseActivity {
 
     public void onCustomizedSlideActionHandler(View view) {
         startActivityInternal(CustomizedSlideActionSampleActivity.class);
+    }
+
+    public void onMoveContentOnlySample(View view) {
+        startActivityInternal(MoveContentOnlySampleActivity.class);
     }
 }

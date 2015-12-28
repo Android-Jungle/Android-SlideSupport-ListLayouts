@@ -49,7 +49,7 @@ public class SampleItemView extends FrameLayout {
 
     private void initLayout(Context context) {
         View.inflate(context, R.layout.layout_sample_item, this);
-        setBackgroundResource(R.drawable.transparent_item_with_press_bkg);
+        setBackgroundResource(R.drawable.white_item_with_press_bkg);
 
         mIconView = findViewById(R.id.icon);
         mTitleView = (TextView) findViewById(R.id.title);

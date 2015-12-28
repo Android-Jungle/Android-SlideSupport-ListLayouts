@@ -36,6 +36,7 @@ public class RecyclerViewSampleLayout extends FrameLayout {
 
     protected SlideSupportRecyclerView mRecyclerView;
     private List<HelperUtils.Item> mItemList;
+    private SlideSupportRecyclerView.SlideAdapter<ItemHolder> mAdapter;
     private int mFavViewBkgColorResId;
 
 
@@ -58,7 +59,7 @@ public class RecyclerViewSampleLayout extends FrameLayout {
         View.inflate(context, R.layout.layout_recycler_view_sample, this);
         mItemList = HelperUtils.getItemList();
         mRecyclerView = (SlideSupportRecyclerView) findViewById(R.id.recycler_view);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(createAdapter(R.layout.layout_item_with_delete));
     }
 
     public void reload() {
@@ -72,6 +73,10 @@ public class RecyclerViewSampleLayout extends FrameLayout {
 
     public void setFavViewBkgColorResId(int colorResId) {
         mFavViewBkgColorResId = colorResId;
+    }
+
+    public void setSampleItemLayoutResId(int layoutResId) {
+        mRecyclerView.setAdapter(createAdapter(layoutResId));
     }
 
     private class ItemHolder extends RecyclerView.ViewHolder {
@@ -132,23 +137,29 @@ public class RecyclerViewSampleLayout extends FrameLayout {
         }
     }
 
-    private SlideSupportRecyclerView.SlideAdapter<ItemHolder> mAdapter =
-            new SlideSupportRecyclerView.SlideAdapter<ItemHolder>() {
-                @Override
-                public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                    SlideSupportLayout layout = createSlideLayout(parent);
-                    View.inflate(getContext(), R.layout.layout_item_with_delete, layout);
-                    return new ItemHolder(layout);
-                }
+    private SlideSupportRecyclerView.SlideAdapter<ItemHolder> createAdapter(
+            final int layoutResId) {
 
-                @Override
-                public void onBindViewHolder(ItemHolder holder, int position) {
-                    holder.update(mItemList.get(position));
-                }
+        mAdapter = new SlideSupportRecyclerView.SlideAdapter<ItemHolder>() {
 
-                @Override
-                public int getItemCount() {
-                    return mItemList.size();
-                }
-            };
+            @Override
+            public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                SlideSupportLayout layout = createSlideLayout(parent);
+                View.inflate(getContext(), layoutResId, layout);
+                return new ItemHolder(layout);
+            }
+
+            @Override
+            public void onBindViewHolder(ItemHolder holder, int position) {
+                holder.update(mItemList.get(position));
+            }
+
+            @Override
+            public int getItemCount() {
+                return mItemList.size();
+            }
+        };
+
+        return mAdapter;
+    }
 }

@@ -10,26 +10,29 @@
 
         <attr name="slideStyle" format="enum">
             <enum name="moveItemOnly" value="1"/>
-            <enum name="moveWithContent" value="2"/>
-            <enum name="scaleItem" value="3"/>
-            <enum name="rotateItem" value="4"/>
-            <enum name="alphaItem" value="5"/>
+            <enum name="moveContentOnly" value="2"/>
+            <enum name="moveWithContent" value="3"/>
+            <enum name="scaleItem" value="4"/>
+            <enum name="rotateItem" value="5"/>
+            <enum name="alphaItem" value="6"/>
         </attr>
 
         <attr name="leftToRightSlideStyle" format="enum">
             <enum name="moveItemOnly" value="1"/>
-            <enum name="moveWithContent" value="2"/>
-            <enum name="scaleItem" value="3"/>
-            <enum name="rotateItem" value="4"/>
-            <enum name="alphaItem" value="5"/>
+            <enum name="moveContentOnly" value="2"/>
+            <enum name="moveWithContent" value="3"/>
+            <enum name="scaleItem" value="4"/>
+            <enum name="rotateItem" value="5"/>
+            <enum name="alphaItem" value="6"/>
         </attr>
 
         <attr name="rightToLeftSlideStyle" format="enum">
             <enum name="moveItemOnly" value="1"/>
-            <enum name="moveWithContent" value="2"/>
-            <enum name="scaleItem" value="3"/>
-            <enum name="rotateItem" value="4"/>
-            <enum name="alphaItem" value="5"/>
+            <enum name="moveContentOnly" value="2"/>
+            <enum name="moveWithContent" value="3"/>
+            <enum name="scaleItem" value="4"/>
+            <enum name="rotateItem" value="5"/>
+            <enum name="alphaItem" value="6"/>
         </attr>
     </declare-styleable>
 
