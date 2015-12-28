@@ -92,6 +92,7 @@ convertView = layout;
 |滑动动作|作用|
 |---|---|
 |moveItemOnly|只滑动配置的 View|
+|moveContentOnly|只滑动配置的 contentView|
 |moveWithContent|同时滑动配置的 View 和 contentView|
 |scaleItem|缩放配置的 View|
 |rotateItem|旋转配置的 View|
