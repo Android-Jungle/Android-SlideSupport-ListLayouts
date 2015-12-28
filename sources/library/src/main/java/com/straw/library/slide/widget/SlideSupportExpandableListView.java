@@ -58,7 +58,6 @@ public class SlideSupportExpandableListView extends ExpandableListView
         initLayout(context, null);
     }
 
-
     public SlideSupportExpandableListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initLayout(context, attrs);

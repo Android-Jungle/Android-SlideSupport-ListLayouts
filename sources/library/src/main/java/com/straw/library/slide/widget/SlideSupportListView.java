@@ -55,7 +55,6 @@ public class SlideSupportListView extends ListView implements SlideSupporter {
         initLayout(context, null);
     }
 
-
     public SlideSupportListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initLayout(context, attrs);

@@ -57,7 +57,6 @@ public class SlideSupportRecyclerView extends RecyclerView
         initLayout(context, null);
     }
 
-
     public SlideSupportRecyclerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initLayout(context, attrs);
