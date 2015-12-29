@@ -14,12 +14,18 @@
 - **SwipeRefreshLayout** + xxxView
 - **PullToRefresh** + xxxView
 
-### 2、相关下载
+### 2、使用方法
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该 Library 已经同步到 jcenter，所以有如下两种使用方法：
+
+- 通过 jcenter 引用：在 `build.gradle` 中加入依赖：`compile 'com.straw.library:android-slidesupport-listlayouts:1.0'`； 
+- 下载 aar 文件，在 Android Studio 中导入 aar 文件。
+
+### 3、相关下载
 
 - **Library aar**：[Android-SlideSupport-ListLayouts__1.0.aar](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__1.0.aar)
 - **Samples apk**：[Android-SlideSupport-ListLayouts__samples.apk](https://raw.githubusercontent.com/arnozhang/Android-SlideSupport-ListLayouts/master/release/Android-SlideSupport-ListLayouts__samples.apk)
 
-### 3、使用预览
+### 4、使用预览
 |ListView|RecyclerView + SwipeRefreshLayout|ListView + PullToRefresh Library|
 |---|---|---|
 |![ListView](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/list_view.gif?raw=true)|![RecyclerView + SwipeRefreshLayout](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/with_swipe_refresh_layout.gif?raw=true)|![ListView + PullToRefreshLibrary](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/pull_to_refresh_list_view.gif?raw=true)|
@@ -28,8 +34,8 @@
 |---|---|
 |![ExpandableListView](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/expandable_list_view.gif?raw=true)|![Customized Slide Action](https://github.com/arnozhang/Android-SlideSupport-ListLayouts/blob/master/docs/screenshots/customized_slide_action.gif?raw=true)|
 
-### 4、使用方式
-#### 4.1、XML 中指定滑动 View 和滑动动作
+### 5、使用方式
+#### 5.1、XML 中指定滑动 View 和滑动动作
 ```xml
 <com.straw.library.slide.widget.SlideSupportListView
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -45,7 +51,7 @@
     app:slideDuration="200"/>
 ```
 
-#### 4.2、为 SlideSupportListView 配置 Adapter
+#### 5.2、为 SlideSupportListView 配置 Adapter
 ```java
 SlideSupportListView.SlideAdapter adapter = new SlideSupportListView.SlideAdapter {
 
@@ -78,7 +84,7 @@ View.inflate(mContext, R.layout.layout_item_with_delete, layout);
 convertView = layout;
 ```
 
-#### 4.3、支持的滑动类型
+#### 5.3、支持的滑动类型
 
 |滑动类型|作用|
 |---|---|
@@ -87,7 +93,7 @@ convertView = layout;
 |rightToLeft|只支持手指从右往左滑动|
 |both|左右两个方向的滑动均支持|
 
-#### 4.4、XML 中支持的滑动动作
+#### 5.4、XML 中支持的滑动动作
 
 |滑动动作|作用|
 |---|---|
@@ -98,7 +104,7 @@ convertView = layout;
 |rotateItem|旋转配置的 View|
 |alphaItem|调整配置 View 的透明度|
 
-#### 4.5、XML 中支持配置的属性
+#### 5.5、XML 中支持配置的属性
 
 |属性|作用|
 |---|---|
@@ -136,7 +142,7 @@ convertView = layout;
 |toAlpha|`alphaItem`|结束透明度，[ 0, 1.0f ]|
 |alphaDuration|`alphaItem`|透明度渐变时长，ms. 如不指定将继承 `slideDuration` 的值|
 
-### 5、XML 中必须配置的属性
+### 6、XML 中必须配置的属性
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般来说，大部分属性都有默认值，如果你要一个简单的效果，有下面几项在对应情况下是必须配置的：
 
@@ -144,7 +150,7 @@ convertView = layout;
 - `rightViewId`：想要从右往左滑动效果时必须指定
 - `contentViewId`：想要滑动 View 和 contentView 联动时必须配置（如 slideStyle 为 `moveWithContent`）
 
-### 6、滑动动作列表
+### 7、滑动动作列表
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滑动的具体展现方式是通过 `SlideHandler` 来配置的，目前支持的滑动动作列表如下：
 
@@ -161,11 +167,11 @@ convertView = layout;
 |SlideHandlerSequence|否|动作序列，可将若干动作按顺序依次执行|
 |CallbackSlideHandler|否|动作执行回调，可和 `SlideHandlerSequence` 结合执行，在某个动作执行完后回调|
 
-### 7、自定义动作
+### 8、自定义动作
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过实现 `SlideHandler` 接口来实现自己的动作，通过 `SlideSupporter.setSlideHandler` 方法设置到对应的 View。具体可参考 samples 中的 `CustomizedSlideActionLayout` 的实现。
 
-### 8、高级操作
+### 9、高级操作
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以通过 `CompositeSlideHandler`、`SlideHandlerSet`、`SlideHandlerSequence`、`CallbackSlideHandler`、`DelayTimeSlideHandler` 等 Handler 组合，来实现一系列高级的用法。比如：
 
